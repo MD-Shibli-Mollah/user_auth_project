@@ -18,6 +18,7 @@ function App() {
     // We should of course check email and password
     // But it's just a dummy/ demo anyways
 
+    //localstorage is used here to save the log in state...
     localStorage.setItem("isLoggedIn", "1");
     setIsLoggedIn(true);
   };
