@@ -13,9 +13,13 @@ const Login = (props) => {
 
   //handling side effects by using useEffect...
   useEffect(() => {
-    setFormIsValid(
-      enteredEmail.includes("@") && enteredPassword.trim().length > 6
-    );
+    setTimeout(() => {
+      setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+      );
+    }, 500);
+  //CleanUp Function
+    return () => {};
   }, [enteredEmail, enteredPassword]);
 
   //EMAIL Validation for BUTTON
