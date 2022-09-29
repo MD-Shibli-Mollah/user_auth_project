@@ -47,17 +47,20 @@ const Login = (props) => {
     value: '',
     isValid: null,
   });
+  //Object destructuring for optimizing the code for useEffect
+  const {isValid: emailIsValid} = emailState;
+  const {isValid: passwordIsValid} = passwordState;
 
   //handling side effects by using useEffect...
   useEffect(() => {
     const identifier = setTimeout(() => {
-      setFormIsValid(emailState.isValid && passwordState.isValid);
+      setFormIsValid(emailIsValid && passwordIsValid);
     }, 500);
     //CleanUp Function
     return () => {
       setTimeout(identifier);
     };
-  }, [emailState, passwordState]);
+  }, [emailIsValid, passwordIsValid]);
 
   //EMAIL Validation onChange
   const emailChangeHandler = (event) => {
